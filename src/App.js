@@ -1,24 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
-
+// import {useState} from 'react'
+import axios from 'axios';
 function App() {
+  // const [data,setData] = useState([])
+ 
+  // const URL = "http://localhost:5004/api";
+  const URL = "http://localhost:5004";
+  async function dataPoster(e) { 
+    e.preventDefault() 
+    await axios({
+      method: "post",
+      url: URL,
+      headers: {
+        "X-Shopify-Access-Token": "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",
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      // setData([res])
+      console.log(res.data);
+    });
+  } 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    < >
+      
+      <button onClick={dataPoster} style={{ margin: "4rem" }}>Get All Products</button> 
+     
+    </>
   );
 }
 
