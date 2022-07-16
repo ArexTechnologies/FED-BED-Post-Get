@@ -11,7 +11,7 @@ function App() {
     await axios({
       method: "post",
       url: URL,
-      headers: {
+      headers: {  
         "X-Shopify-Access-Token": "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",
         "Content-Type": "application/json",
       },
